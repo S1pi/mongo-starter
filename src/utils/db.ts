@@ -9,13 +9,9 @@ const mongoConnect = async () => {
     throw new CustomError('DB_URL is not defined', 500);
   }
 
-  try {
-    const connection = await mongoose.connect(process.env.DB_URL);
-    console.log('MongoDB connected');
-    return connection;
-  } catch (error) {
-    console.error('MongoDB connection error:', error);
-  }
+  const connection = await mongoose.connect(process.env.DB_URL);
+  console.log('MongoDB connected');
+  return connection;
 };
 
 export default mongoConnect;
